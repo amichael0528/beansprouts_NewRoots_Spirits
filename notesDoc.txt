@@ -8,7 +8,12 @@ https://www.mixamo.com/#/?page=1&query=idle&type=Motion%2CMotionPack
 Houdini -
 
 prep mesh:
-1) import alembic, and have it unpack the alembic as a delayed load primitive
-2) if necessary - scatter it out and optimize it for sim if not watertight
- a) scatter + vdbfromparticles + convertvdb + ray
-3) 
+1) import alembic, and have it unpack the alembic as a delayed load primitive, subdivide it to smooth it. Skip 2-3
+2) if necessary - scatter it out and optimize it for sim if not watertight with the following nodes:
+ a) scatter 
+ b) vdbfromparticles 
+ c) convertvdb 
+ d) ray
+3) optimization starts with timeshift1 from frame 1, then vdbfrompolygons, vdbsmooth, converting back to poly, remeshing, and smoothing into an accessible NULL node for later.
+4) Filecache the updated optimized mesh then transform it to fit a 5x5x5 volume. 
+
