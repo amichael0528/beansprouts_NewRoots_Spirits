@@ -1,0 +1,14 @@
+https://imagetostl.com/convert/file/fbx/to/abc
+
+https://www.mixamo.com/#/?page=1&query=idle&type=Motion%2CMotionPack
+
+- Alembic meshes from mixamo, convert them from FBX into ABC within imagetostl
+
+
+Houdini -
+
+prep mesh:
+1) import alembic, and have it unpack the alembic as a delayed load primitive
+2) if necessary - scatter it out and optimize it for sim if not watertight
+ a) scatter + vdbfromparticles + convertvdb + ray
+3) 
